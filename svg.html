@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limited Stock Alert</title>
+    <style>
+        .circle-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 50px solid #FC0;
+            animation: rotateCircle 5s linear infinite;
+        }
+
+        .limited-text {
+            font-size: 18px;
+            font-weight: 700;
+            white-space: nowrap;
+            animation: rotateText 5s linear infinite;
+        }
+
+        .hurry-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        @keyframes rotateCircle {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateText {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="circle"></div>
+        <svg width="300" height="300">
+            <text x="150" y="150" text-anchor="middle" class="limited-text">
+                <textPath href="#textPath">
+                    LIMITED STOCK ALERT * LIMITED STOCK ALERT
+                </textPath>
+            </text>
+            <!-- Adjust the d attribute to change the path -->
+            <path id="textPath" d="M150,150 m-100,100 a100,100 0 0,0 200,0 a100,100 0 0,0 -200,0" fill="transparent"></path>
+        </svg>
+        <div class="hurry-text">HURRY!</div>
+    </div>
+</body>
+</html>
